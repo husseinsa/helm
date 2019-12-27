@@ -1,0 +1,29 @@
+﻿version: '3'
+services:
+  db-service:
+    image: productsdb
+    container_name: productsdb
+    build: 
+      context: db
+    ports: 
+      - 27017:27017
+  backend-service:
+    image: backend
+    container_name: backend
+    build:
+      context: back-end
+    ports:
+      - 9000:80
+    environment:
+      ProductstoreDatabaseSettings__ConnectionString: mongodb://productsdb:27017
+    depends_on:
+      - db-service
+  frontend-service:
+    image: frontend
+    container_name: frontend
+    build:
+      context: front-end
+    ports:
+      - 4200:80
+    depends_on: 
+      - backend-service

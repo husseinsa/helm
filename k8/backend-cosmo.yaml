@@ -1,0 +1,37 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-api
+  template:
+    metadata:
+      labels:
+        app: backend-api
+    spec:
+      containers:
+      - name: backend
+        image: myk8registry.azurecr.io/backend:v1
+        env:
+          - name: ProductstoreDatabaseSettings__ConnectionString
+            value: mongodb://hsproducts:kwUDJmhC4I6FGd4Mxq2aUyKXLGUkVpfSDd61TSPSYru4V5tEVk2LsiaMnwfXl5dpLJNbPxaPRcAzDG2twxnUQA==@hsproducts.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: backend-api
+---
+
+

@@ -1,0 +1,1 @@
+mongoimport --host localhost --db shop --collection products --type json --file ./products.json --jsonArray
