@@ -6,16 +6,23 @@ replicaCount: 1
 tag: v1
 imagePullPolicy: IfNotPresent
 
+svc:
+  port: 80
+
 backend:
   name: backend-api
   image:
     repository: myk8registry.azurecr.io/backend
-  container:
-    port: 80
   service:
     type: LoadBalancer
-    port: 80
 
+backend:
+  name: ui
+  image:
+    repository: myk8registry.azurecr.io/frontend
+  service:
+    type: LoadBalancer
+    
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
