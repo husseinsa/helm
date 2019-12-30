@@ -10,7 +10,7 @@ svc:
   port: 80
 
 backend:
-  name: backend-api
+  name: backend
   image:
     repository: myk8registry.azurecr.io/backend
   service:
