@@ -17,7 +17,7 @@ spec:
         image: myk8registry.azurecr.io/backend:v1
         env:
           - name: ProductstoreDatabaseSettings__ConnectionString
-            value: mongodb://hsproducts:kwUDJmhC4I6FGd4Mxq2aUyKXLGUkVpfSDd61TSPSYru4V5tEVk2LsiaMnwfXl5dpLJNbPxaPRcAzDG2twxnUQA==@hsproducts.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
+            value: mongodb://products-store:vC0gGarjnRmy8fTRvR0I2FdTuCdTIfxPnPu4rpPzB7zpYgn4nxG9JbOgT5UCJ1xjSSU4pIGgiRhzl1Y079HXKg==@products-store.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
         ports:
         - containerPort: 80
 ---

@@ -16,7 +16,7 @@ backend:
   service:
     type: LoadBalancer
 
-backend:
+frontend:
   name: ui
   image:
     repository: myk8registry.azurecr.io/frontend
@@ -47,7 +47,7 @@ securityContext: {}
 
 
 
-ingress:
+ingress:    
   enabled: false
   annotations: {}
     # kubernetes.io/ingress.class: nginx

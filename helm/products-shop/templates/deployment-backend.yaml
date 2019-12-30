@@ -23,6 +23,9 @@ spec:
         - name: {{ .Values.backend.name }}
           image: "{{ .Values.backend.image.repository }}:{{ .Values.tag }}"
           imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - name: ProductstoreDatabaseSettings__ConnectionString
+              value: mongodb://products-store:vC0gGarjnRmy8fTRvR0I2FdTuCdTIfxPnPu4rpPzB7zpYgn4nxG9JbOgT5UCJ1xjSSU4pIGgiRhzl1Y079HXKg==@products-store.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
           ports:
             - name: http
               containerPort: 80
